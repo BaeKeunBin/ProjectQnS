@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+
+    <!-- jquery !-->
+    <script src="vendor/jquery/jquery.js"></script>
+    <script src="vendor/jquery/jquery-ui.js"></script>
+    <script src="vendor/stylish-portfolio.js"></script>
+    
+    <!--Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+    <header class="masthead d-flex">
+        <div class="container text-center my-auto">
+            <h1 class="mb-1">Do QnS!</h1>
+            <h3 class="mb-5">
+                <em>Start survey and check subject Favorability</em>
+            </h3>
+            <div id="scBtn" class="btn btn-primary btn-xl js-scroll-trigger">Find Out More</div>
+        </div>
+        <div class="overlay"></div>
+    </header>
+<!--    시작     -->
+    <div class="myWrapper">
+        <div id="professorBtn" class="professorBtn">
+        </div>
+        <div id="studentBtn" class="studentBtn">
+        </div>
+<!-- login bootstrap  -->
+        <div id="LoginWindow" class="container">
+            <div class="card card-login mx-auto mt-5">
+                <div class="card-header">Login
+                    <span id="loginClose">&times;</span></div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <div class="form-label-group">
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+                                <label id="idLabel" for="inputEmail">Email address</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                                <label id="pwLabel" for="inputPassword">Password</label>
+                            </div>
+                        </div>
+                        <div class="btn btn-primary btn-block">Start</div>
+                    </form>
+                    <div class="text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--dev infomation-->
+    <footer class="footer text-center">
+        <div class="container">
+                                        <span id="kakaoT">gam5546</span>
+                                        <span id="gmailT">gam5546@gmail.com</span>
+                                        <span id="githubT">https://github.com/BaeKeunBin</span>
+            <ul class="list-inline mb-5">
+                <li id="kakao" title="gam5546" class="list-inline-item">
+                    <div class="social-link rounded-circle text-white mr-3" href="#">
+                        <i class="icon-bubble"></i>
+                    </div>
+                </li>
+                <li id="gmail" title="gam5546@gmail.com" class="list-inline-item">
+                    <div class="social-link rounded-circle text-white mr-3" href="#">
+                        <i class="icon-social-google"></i>
+                    </div>
+
+                </li>
+                <li id="github" title="https://github.com/BaeKeunBin" class="list-inline-item">
+                    <div class="social-link rounded-circle text-white" href="#">
+                        <i class="icon-social-github"></i>
+                    </div>
+
+                </li>
+            </ul>
+            <p class="text-muted small mb-0">Copyright &copy; Bae Keun Bin 2018</p>
+        </div>
+    </footer>
+
+</body>
+<script>
+    /*로그인 시작 버튼*/
+    //교수
+    $("#professorBtn").click(function() {
+        
+        swal("nope!","다시 입력해 주세요","error")
+        $("#LoginWindow").css("display", "block");
+        //패스워드 타입
+        $("#inputPassword").attr("type", "password");
+        //기존 값 지우기
+        $("#inputEmail").val("");
+        $("#inputPassword").val("");
+        //알림문자 삽입
+        $("#idLabel").html("Email address");
+        $("#pwLabel").html("Password");
+    });
+    //학생
+    $("#studentBtn").click(function() {
+        $("#LoginWindow").css("display", "block");
+        //ID 타입
+        $("#inputPassword").attr("type", "id");
+        $("#inputEmail").val("");
+        $("#inputPassword").val("");
+        $("#idLabel").html("이름");
+        $("#pwLabel").html("학번");
+    });
+    $("#loginClose").click(function() {
+        $("#LoginWindow").css("display", "none");
+    });
+
+    $("#scBtn").click(function() {
+        var scmove = $('#professorBtn').offset().top;
+        $('html, body').animate({
+            scrollTop: scmove
+        }, 400);
+    });
+</script>
+
+</html>

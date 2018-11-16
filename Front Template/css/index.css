@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+}
+.myWrapper{
+    width: 100%;
+    height:800px;
+    margin: auto;
+    display: inline-flex;
+}
+.professorBtn{
+    background-image: url(../img/professor.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+}
+.professorBtn:hover{
+    opacity: 0.7;
+}
+
+.studentBtn{
+    background-image: url(../img/student.PNG);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+}
+.studentBtn:hover{
+    opacity: 0.7;
+}
+
+#LoginWindow{
+    position:absolute;
+    max-width: 100%;
+    height: 800px;
+    display: none;
+}
+
+#loginClose{
+    position: relative;
+    left:300px;
+    cursor: pointer;
+}
+#loginClose:hover{
+    background-color: gainsboro;
+}
+#kakao{
+    position: relative;
+    left : -90px;
+}
+#github{
+    position: relative;
+    left: 90px;
+}
+#kakaoT{
+    position: relative;
+    top:90px;
+    left:3px;
+}
+#gmailT{
+    position: relative;
+    top:90px;
+    left:75px;
+}
+#githubT{
+    position: relative;
+    top:90px;
+    left:90px;
+}
