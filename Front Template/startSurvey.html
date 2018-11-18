@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>start survey</title>
+    <link rel="stylesheet" href="">
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap spacelab    -->
+    <link href="css/yeti.css" rel="stylesheet">
+
+    <!-- menu custom css-->
+    <link href="css/menu.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="vendor/jquery/jquery.js"></script>
+
+    <!--Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">QnS</a>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <span class="navbar-brand">XXX님 안녕하세요</span>
+        </div>
+    </nav>
+    <div class="container">
+        <form>
+            <fieldset>
+                <legend>설문조사를 생성합니다</legend>
+
+                <div class="form-group">
+                    <label for="InputSubject">설문조사 제목</label>
+                    <input type="text" class="form-control" id="InputSubject" placeholder="Enter subject">
+                    <small class="form-text text-muted">ex.) 클라우드 컴퓨팅 응용 - 민정환 - 학기말 서면상담지</small>
+                </div>
+                <div class="form-group">
+                    <label for="InputSubject">과목 이름</label>
+                    <input type="text" class="form-control" id="InputSubject" placeholder="Enter subject">
+                    <small class="form-text text-muted">ex.) 클라우드 컴퓨팅 응용</small>
+                </div>
+                
+                <fieldset class="form-group">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input id="useTemplate" class="form-check-input" type="checkbox">
+                            기존의 서면상담조사 질문을 사용합니다.
+                        </label>
+                    </div>
+                </fieldset>
+                <button id="addQ" type="button" class="btn btn-info">질문 추가하기</button>
+                <button id="clearQ" type="button" class="btn btn-info">질문 리스트 초기화 하기</button>
+                <div id="Qlist" class="form-group">
+<!--
+                    <label for="InputQ_1">1번 질문</label>
+                    <input type="email" class="form-control" id="InputQ" placeholder="Enter email">
+-->
+                </div>
+
+                <button type="submit" class="btn btn-primary">생성하기</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+    <script>
+    let i=0;
+    $("#useTemplate").attr("checked",false);
+    $("#addQ").click(function(){
+        i++;
+        $("#Qlist").append('<label for="InputQ">'+i+'번 질문</label><input type="email" class="form-control" id="InputQ_'+i+'" placeholder="Enter email">')
+    });
+    $("#clearQ").click(function(){
+        i=0;
+        $("#Qlist").empty();
+    });
+    
+    $("#useTemplate").change(function(){
+        if($("#useTemplate").is(":checked")){
+            i=0;
+            $("#Qlist").empty();
+            $("#addQ").attr("disabled","disabled");
+            $("#clearQ").attr("disabled","disabled");
+        }else{
+            $("#addQ").removeAttr("disabled");
+            $("#clearQ").removeAttr("disabled");
+        }
+    });
+    </script>
+
+</html>
