@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>start survey</title>
+    <link rel="stylesheet" href="">
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap spacelab    -->
+    <link href="css/yeti.css" rel="stylesheet">
+
+    <!-- menu custom css-->
+    <link href="css/menu.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="vendor/jquery/jquery.js"></script>
+
+    <!--Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">QnS</a>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <span class="navbar-brand">{{username}} 님 안녕하세요</span>
+        </div>
+    </nav>
+    <div class="container">
+        <br>
+        <h1>진행중인 설문 과목별 강의평가</h1>
+        <div class="form-group">
+            <select id="selectSurvey" class="custom-select">
+<!--               <option selected="">교수님의 진행중인 설문</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option> -->
+            </select>
+        </div>
+        <button id="viewByQuestion" type="button" class="btn btn-success">확인</button>
+        <hr>
+        <div id="answerList">
+<!--             <div class="card border-info mb-3" style="max-width: 70rem;">
+                <div class="card-header">이름</div>
+                <div class="card-body">
+                    <h4 class="card-title">질문</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div> -->
+
+<!--             <div class="card border-success mb-3" style="max-width: 70rem;">
+                <div class="card-header">질문</div>
+                <div class="card-body">
+                    <h4 class="card-title">이름</h4>
+                    <p class="card-text">답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변답변</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
