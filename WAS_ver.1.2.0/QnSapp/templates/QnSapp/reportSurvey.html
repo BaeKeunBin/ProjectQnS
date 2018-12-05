@@ -1,0 +1,119 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View survey</title>
+    <!-- Bootstrap core CSS-->
+    <link href="{%static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <!-- Bootstrap spacelab    -->
+    <link href="{%static 'css/yeti.css'%}" rel="stylesheet">
+    <!-- jquery -->
+    <script src="{%static 'vendor/jquery/jquery.js'%}"></script>
+    <!--Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">QnS</a>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <span class="navbar-brand">{{username}} 님 안녕하세요</span>
+        </div>
+    </nav>
+    <div class="container">
+        <br>
+        <h1>후기 보기</h1>
+        <div class="form-group">
+            <select id="selectSubject" class="custom-select">
+<!--               <option selected="">교수님의 진행중인 설문</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option> -->
+            </select>
+        </div>
+        <button id="reviewBtn" type="button" class="btn btn-success">보기</button>
+        <hr>
+        <div id="answerList">
+<!-- 			<div class="alert alert-dismissible alert-info" style="font-size: 30px;">
+			  <strong>해당 과목의 평균 별점 : </strong>
+			</div>
+
+			<div class="card border-info mb-3" style="max-width: 100rem;">
+			  <div class="card-header">Header</div>
+			  <div class="card-body">
+			    <h4 class="card-title">Info card title</h4>
+			  </div>
+			</div> -->
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+	// 리스트 생성
+	$("#selectSubject").append('<option value="" selected="">설문이 진행 되었던 과목</option>');
+	$.ajax({               
+	    type: "POST",                   
+	    url: "/subjectList/",               
+	    data: {},
+	    dataType: "json",                           
+	                                                                                                 
+	    success: function(response){
+	    			console.log(response);
+	    			for(var i=0;i<response.subjectList.length;i++)
+	    			{
+						$("#selectSubject").append('<option value="'+response.subjectList[i]+'">'+response.subjectList[i]+'</option>');
+		 			}
+	            },
+	    error: function(request, status, error){    
+	                // 에러시에 디버깅 내용 포함시키기
+	                console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
+	                console.log("ajax 실패");
+	            },
+	});
+    
+	$("#reviewBtn").click(function(){
+		var subjectName = $("#selectSubject").val();
+		console.log(subjectName);
+		if(subjectName =="")
+		{
+			swal("선택된 과목이없습니다.","과목을 먼저 선택해 주세요","error");
+			return;
+		}
+		$("#answerList").empty();
+		$.ajax({               
+	    type: "POST",                   
+	    url: "/getSubjectInfo/",               
+	    data: {"subjectName":subjectName},
+	    dataType: "json",                           
+	                                                                                                 
+	    success: function(response){
+	    			console.log(typeof response.starRate[0]);
+	    			var sum=0;
+	    			for(var i =0; i<response.starRate.length;i++)
+	    			{
+	    				sum += response.starRate[i];
+	    			}
+	    			var meanOfRate = sum/response.starRate.length;
+	    			$("#answerList").append('<div class="alert alert-dismissible alert-info" style="font-size: 30px;"><strong>해당 과목의 평균 별점 : '+meanOfRate+'</strong></div>');
+
+	    			for(var i =0; i<response.starRate.length;i++)
+	    			{
+	    				starRate = response.starRate[i];
+	    				extraAns = response.extraAns[i];
+	    				$("#answerList").append('<div class="card border-info mb-3" style=" max-width:100rem;"><div class="card-header">별점 : '+starRate+'</div><div class="card-body"><h4 class="card-title">'+extraAns+'</h4></div></div>');
+	    			}
+
+	            },
+	    error: function(request, status, error){    
+	                // 에러시에 디버깅 내용 포함시키기
+	                console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
+	                console.log("ajax 실패");
+	            },
+		});
+	});
+</script>
+</html>

@@ -1,0 +1,98 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer survey</title>
+    <!-- Bootstrap core CSS-->
+    <link href="{%static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <!-- Bootstrap spacelab    -->
+    <link href="{%static 'css/yeti.css'%}" rel="stylesheet">
+    <!-- jquery -->
+    <script src="{%static 'vendor/jquery/jquery.js'%}"></script>
+
+    <!--Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">QnS</a>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <span class="navbar-brand">{{username}} 님 안녕하세요</span>
+        </div>
+    </nav>
+    <div class="container">
+        <form id="surveyAnswer" method="post">
+            {% csrf_token %}
+            <legend id ='surveyTitle'>제목 : 클라우드 컴퓨팅 응용 학기말 서면상담 조사 </legend>
+            <div id ="surveyList" class="form-group">
+<!--                 <label for="exampleTextarea">Q1 : 당신의 인생은 마이웨이 였습니까 ?</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea> -->
+            </div>
+
+            <hr>
+            <label for="startRate">과목 별점 </label>
+            <div id="rateYo"></div>
+            <input type="hidden" id="starRate" name="starRate">
+            <br>
+            <div class="form-group">
+                <label for="extraQ">Q : 후배를 위한 과목 후기 및 팁 </label>
+                <textarea class="form-control" id="extraQ" name="extraQ" rows="3"></textarea>
+            </div>
+            <button id="submitSurvey" type="button" class="btn btn-primary">제출하기</button>
+        </form>
+    </div>
+</body>
+<script>
+    $.ajax({               
+        type: "POST",                   
+        url: "/questionList/",               
+        data: {},
+        dataType: "json",                                                                                              
+        success: function(response){
+                    console.log(response);
+                    $("#surveyTitle").html('제목 : '+ response.title);
+                    for(var i=0; i<response.QNum.length; i++){
+                        const QNumber =response.QNum[i]; 
+                        const QID = "answer_"+QNumber;
+                        const Qtext = response.Qcontent[i];
+                        const title = "Q"+QNumber+" "+Qtext;
+                        $("#surveyList").append('<label for="exampleTextarea">'+title+'</label><textarea class="form-control" name="'+QID+'" id="'+QID+'" rows="3" value="Default"></textarea>');
+                        
+                    }
+                },
+        error: function(request, status, error){    
+                    // 에러시에 디버깅 내용 포함시키기
+                    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
+                    console.log("ajax 실패");
+                },
+    });
+
+    $("#rateYo").rateYo({
+        starWidth: "50px"
+    });
+    //    var normalFill = $("#rateYo").rateYo("option", "rating"); //returns 50
+    $("#rateYo").rateYo()
+        .on("rateyo.set", function(e, data) {
+            $("#starRate").val(data.rating)
+            // alert("The rating is set to " + data.rating + "!");
+        });
+
+    $("#submitSurvey").click(function(){
+            swal("제출 완료!","참여해주셔서 감사합니다.","success").then((value)=>{
+            $("#surveyAnswer").submit();
+        });
+    });
+</script>
+
+</html>
