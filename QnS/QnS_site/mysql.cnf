@@ -1,0 +1,9 @@
+# mysql.cnf
+
+[client]
+database = QnSDB
+host = qnsdb.ck5ygpmxvyhd.ap-northeast-2.rds.amazonaws.com
+user = illem5546
+password = gkttk3081
+port = 3306
+default-character-set = utf8
