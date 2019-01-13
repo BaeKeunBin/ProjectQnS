@@ -16,7 +16,7 @@ ProjectQnS
 	 - Bootstrap
 	 - AWS
 		 - EC2
-		 - RDS
+		 - RDS - Mysql
 		 - S3
 
 ***  
