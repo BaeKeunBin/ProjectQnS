@@ -26,6 +26,11 @@
 		 - S3
 
 ***  
+
+### 교수 로그인 email : test@test.com / password : test 을 통해서 가능합니다.
+
+***  
+
 <img src="프로젝트%20결과/PPT_Image2.png"><br>
 <img src="프로젝트%20결과/PPT_Image1.png"><br>
 <img src="프로젝트%20결과/PPT_Image3.png"><br>
