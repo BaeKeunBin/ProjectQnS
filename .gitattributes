@@ -1,2 +1,2 @@
-Front_template/* linguist-vendored
-*.css binary
+*.css linguist-vendored
+*.html linguist-vendored
