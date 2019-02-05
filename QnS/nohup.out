@@ -1,0 +1,200 @@
+[05/Feb/2019 20:08:10] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:10:15] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:10:20] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:10:20] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:10:21] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:10:21] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:10:21] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:10:21] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:10:22] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:10:22] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:12:47] "HEAD / HTTP/1.1" 200 7976
+[05/Feb/2019 20:12:47] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:12:47] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:16:48] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:17:16] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:17:28] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:17:28] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:19:22] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:19:23] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:19:36] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:19:36] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:19:37] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:19:37] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:19:37] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:19:38] "GET / HTTP/1.1" 200 7976
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ec2-user/QnS/QnSapp/views.py", line 24, in loginPage
+    Studentinfo.save()
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/base.py", line 718, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/base.py", line 748, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/base.py", line 812, in _save_table
+    forced_update)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/base.py", line 841, in _do_update
+    filtered = base_qs.filter(pk=pk_val)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/query.py", line 844, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/query.py", line 862, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/sql/query.py", line 1263, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/sql/query.py", line 1287, in _add_q
+    split_subq=split_subq,
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/sql/query.py", line 1225, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/sql/query.py", line 1096, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/lookups.py", line 20, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/lookups.py", line 70, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/ec2-user/AWSProject/lib64/python3.6/dist-packages/django/db/models/fields/__init__.py", line 1807, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'ㅇㄴㅁ'
+[05/Feb/2019 20:19:41] "POST / HTTP/1.1" 500 131648
+[05/Feb/2019 20:19:55] "POST / HTTP/1.1" 302 0
+[05/Feb/2019 20:19:55] "GET /menu/ HTTP/1.1" 200 4197
+[05/Feb/2019 20:19:55] "GET /static/css/menu.css HTTP/1.1" 200 133
+[05/Feb/2019 20:19:55] "GET /static/css/yeti.css HTTP/1.1" 200 216384
+[05/Feb/2019 20:20:24] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:20:28] "POST / HTTP/1.1" 302 0
+[05/Feb/2019 20:20:29] "GET /menu/ HTTP/1.1" 200 4191
+[05/Feb/2019 20:20:29] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:22:37] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:22:41] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:22:41] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:38:15] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 20:59:03] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 21:25:40] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 21:28:20] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 21:28:23] "GET /admin HTTP/1.1" 301 0
+[05/Feb/2019 21:28:23] "GET /admin/ HTTP/1.1" 302 0
+[05/Feb/2019 21:28:24] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1836
+[05/Feb/2019 21:28:24] "GET /static/admin/css/base.css HTTP/1.1" 200 16225
+[05/Feb/2019 21:28:24] "GET /static/admin/css/login.css HTTP/1.1" 200 1203
+[05/Feb/2019 21:28:24] "GET /static/admin/css/responsive.css HTTP/1.1" 200 17976
+[05/Feb/2019 21:28:24] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[05/Feb/2019 21:28:24] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[05/Feb/2019 21:28:24] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[05/Feb/2019 21:28:28] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2008
+[05/Feb/2019 21:28:28] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[05/Feb/2019 21:28:32] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2014
+[05/Feb/2019 21:28:36] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2014
+[05/Feb/2019 21:28:57] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2014
+[05/Feb/2019 21:29:00] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2014
+[05/Feb/2019 21:29:05] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2012
+[05/Feb/2019 21:29:08] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2012
+[05/Feb/2019 21:29:26] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2008
+[05/Feb/2019 21:29:29] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2008
+[05/Feb/2019 21:29:33] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2015
+[05/Feb/2019 21:29:36] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2015
+[05/Feb/2019 21:30:14] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2014
+[05/Feb/2019 21:30:17] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2014
+[05/Feb/2019 21:31:37] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[05/Feb/2019 21:31:37] "GET /admin/ HTTP/1.1" 200 6446
+[05/Feb/2019 21:31:37] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[05/Feb/2019 21:31:37] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[05/Feb/2019 21:31:37] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[05/Feb/2019 21:31:39] "GET /admin/QnSapp/professor/ HTTP/1.1" 200 3220
+[05/Feb/2019 21:31:39] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+[05/Feb/2019 21:31:39] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:31:39] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[05/Feb/2019 21:31:39] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6918
+[05/Feb/2019 21:31:39] "GET /static/admin/js/core.js HTTP/1.1" 200 7135
+[05/Feb/2019 21:31:39] "GET /static/admin/js/actions.js HTTP/1.1" 200 6538
+[05/Feb/2019 21:31:39] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8972
+[05/Feb/2019 21:31:39] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1530
+[05/Feb/2019 21:31:39] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[05/Feb/2019 21:31:39] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 271751
+[05/Feb/2019 21:31:40] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[05/Feb/2019 21:31:41] "GET /admin/QnSapp/professor/add/ HTTP/1.1" 200 5328
+[05/Feb/2019 21:31:41] "GET /static/admin/css/forms.css HTTP/1.1" 200 8505
+[05/Feb/2019 21:31:41] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:31:41] "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[05/Feb/2019 21:31:41] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[05/Feb/2019 21:31:41] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[05/Feb/2019 21:31:54] "POST /admin/QnSapp/professor/add/ HTTP/1.1" 302 0
+[05/Feb/2019 21:31:54] "GET /admin/QnSapp/professor/ HTTP/1.1" 200 4695
+[05/Feb/2019 21:31:54] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:31:54] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[05/Feb/2019 21:31:56] "GET /admin/QnSapp/ HTTP/1.1" 200 5153
+[05/Feb/2019 21:31:57] "GET /admin/QnSapp/extraq/ HTTP/1.1" 200 3204
+[05/Feb/2019 21:31:57] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:31:58] "GET /admin/QnSapp/ HTTP/1.1" 200 5153
+[05/Feb/2019 21:40:23] "GET /admin/QnSapp/surveypost/ HTTP/1.1" 200 3232
+[05/Feb/2019 21:40:23] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:40:24] "GET /admin/QnSapp/surveypost/add/ HTTP/1.1" 200 5862
+[05/Feb/2019 21:40:24] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:40:38] "POST /admin/QnSapp/surveypost/add/ HTTP/1.1" 302 0
+[05/Feb/2019 21:40:38] "GET /admin/QnSapp/surveypost/ HTTP/1.1" 200 4679
+[05/Feb/2019 21:40:38] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:40:49] "GET /admin/QnSapp/ HTTP/1.1" 200 5153
+[05/Feb/2019 21:40:54] "GET /admin/QnSapp/surveyquestion/ HTTP/1.1" 200 3260
+[05/Feb/2019 21:40:54] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:40:55] "GET /admin/QnSapp/surveyquestion/add/ HTTP/1.1" 200 5927
+[05/Feb/2019 21:40:55] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:41:29] "POST /admin/QnSapp/surveyquestion/add/ HTTP/1.1" 302 0
+[05/Feb/2019 21:41:29] "GET /admin/QnSapp/surveyquestion/1/change/ HTTP/1.1" 200 6567
+[05/Feb/2019 21:41:29] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:41:49] "POST /admin/QnSapp/surveyquestion/1/change/ HTTP/1.1" 302 0
+[05/Feb/2019 21:41:49] "GET /admin/QnSapp/surveyquestion/1/change/ HTTP/1.1" 200 6622
+[05/Feb/2019 21:41:49] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:42:22] "POST /admin/QnSapp/surveyquestion/1/change/ HTTP/1.1" 302 0
+[05/Feb/2019 21:42:22] "GET /admin/QnSapp/surveyquestion/1/change/ HTTP/1.1" 200 6520
+[05/Feb/2019 21:42:22] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:42:46] "POST /admin/QnSapp/surveyquestion/1/change/ HTTP/1.1" 302 0
+[05/Feb/2019 21:42:46] "GET /admin/QnSapp/surveyquestion/1/change/ HTTP/1.1" 200 6592
+[05/Feb/2019 21:42:46] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:42:47] "GET /admin/QnSapp/surveyquestion/ HTTP/1.1" 200 4583
+[05/Feb/2019 21:42:47] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:42:54] "GET /admin/QnSapp/ HTTP/1.1" 200 5153
+[05/Feb/2019 21:42:55] "GET /admin/QnSapp/surveypost/ HTTP/1.1" 200 4476
+[05/Feb/2019 21:42:55] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:42:57] "GET /admin/QnSapp/ HTTP/1.1" 200 5153
+[05/Feb/2019 21:42:58] "GET /admin/QnSapp/surveyquestion/ HTTP/1.1" 200 4583
+[05/Feb/2019 21:42:58] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:42:59] "GET /admin/QnSapp/surveyquestion/1/change/ HTTP/1.1" 200 6266
+[05/Feb/2019 21:42:59] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:43:05] "POST /admin/QnSapp/surveyquestion/1/change/ HTTP/1.1" 302 0
+[05/Feb/2019 21:43:05] "GET /admin/QnSapp/surveyquestion/add/ HTTP/1.1" 200 6273
+[05/Feb/2019 21:43:06] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:43:18] "POST /admin/QnSapp/surveyquestion/add/ HTTP/1.1" 302 0
+[05/Feb/2019 21:43:18] "GET /admin/QnSapp/surveyquestion/add/ HTTP/1.1" 200 6249
+[05/Feb/2019 21:43:18] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:43:28] "POST /admin/QnSapp/surveyquestion/add/ HTTP/1.1" 302 0
+[05/Feb/2019 21:43:28] "GET /admin/QnSapp/surveyquestion/add/ HTTP/1.1" 200 6267
+[05/Feb/2019 21:43:28] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:43:38] "POST /admin/QnSapp/surveyquestion/add/ HTTP/1.1" 302 0
+[05/Feb/2019 21:43:38] "GET /admin/QnSapp/surveyquestion/ HTTP/1.1" 200 5734
+[05/Feb/2019 21:43:38] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[05/Feb/2019 21:44:12] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 21:44:19] "POST / HTTP/1.1" 302 0
+[05/Feb/2019 21:44:19] "GET /menu/ HTTP/1.1" 200 4197
+[05/Feb/2019 21:44:28] "GET /review HTTP/1.1" 301 0
+[05/Feb/2019 21:44:28] "GET /review/ HTTP/1.1" 200 4611
+[05/Feb/2019 21:44:28] "POST /subjectList/ HTTP/1.1" 200 19
+[05/Feb/2019 21:44:33] "GET /postlist HTTP/1.1" 301 0
+[05/Feb/2019 21:44:33] "GET /postlist/ HTTP/1.1" 200 3706
+[05/Feb/2019 21:44:33] "POST /surveyList/ HTTP/1.1" 200 55
+[05/Feb/2019 21:44:36] "GET /postlist/ HTTP/1.1" 200 3706
+[05/Feb/2019 21:44:36] "POST /surveyList/ HTTP/1.1" 200 55
+[05/Feb/2019 21:44:45] "GET / HTTP/1.1" 200 7976
+[05/Feb/2019 21:44:52] "POST /userValidation/ HTTP/1.1" 200 18
+[05/Feb/2019 21:44:53] "GET /menu HTTP/1.1" 301 0
+[05/Feb/2019 21:44:53] "GET /menu/ HTTP/1.1" 200 4192
+[05/Feb/2019 21:44:54] "GET /startSurvey HTTP/1.1" 301 0
+[05/Feb/2019 21:44:54] "GET /startSurvey/ HTTP/1.1" 200 4172
+[05/Feb/2019 21:44:57] "GET /viewSurvey HTTP/1.1" 301 0
+[05/Feb/2019 21:44:57] "GET /viewSurvey/ HTTP/1.1" 200 8240
+[05/Feb/2019 21:44:57] "POST /surveyList/ HTTP/1.1" 200 55
+[05/Feb/2019 21:45:01] "GET /viewSurvey/ HTTP/1.1" 200 8240
+[05/Feb/2019 21:45:01] "POST /surveyList/ HTTP/1.1" 200 55

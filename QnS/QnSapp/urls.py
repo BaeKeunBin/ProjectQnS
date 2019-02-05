@@ -8,7 +8,6 @@ urlpatterns=[
 	path('startSurvey/', views.startSurvey, name='startSurvey'),
 	path('viewSurvey/', views.viewSurvey, name='viewSurvey'),
 	path('answerSurvey/', views.answerSurvey, name='answerSurvey'),
-	path('surveyList/',views.surveyList, name="surveyList"),
 	path('postlist/',views.postlist,name="postlist"),
 	path('review/',views.review,name="review"),
 
@@ -16,6 +15,7 @@ urlpatterns=[
 	path('404error/',views.errorpage,name="errorpage"),
 	#ajax url
 	path('userValidation/',views.userValidation,name="userValidation"),
+	path('surveyList/',views.surveyList, name="surveyList"),
 	path('questionList/',views.questionList,name="questionList"),
 	path('viewQuestion/',views.viewQuestion,name="viewQuestion"),
 	path('subjectList/',views.subjectList, name="subjectList"),
