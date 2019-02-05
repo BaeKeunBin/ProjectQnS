@@ -1,12 +1,18 @@
-ProjectQnS
-==========
+
+
+# ProjectQnS
+
+## 배포 URL : http://ec2-54-180-86-189.ap-northeast-2.compute.amazonaws.com:8080/
+
 개인과제로 진행된 프로젝트 입니다.
 
 ![project logo](프로젝트%20결과/main.png)
 
-***
 
+***
  
+<img src="프로젝트%20결과/login.png" width="420" height="280"> <img src="프로젝트%20결과/menu.png" width="420" height="280"> <img src="프로젝트%20결과/star_rating.png" width="420" height="280"> <img src="프로젝트%20결과/database.PNG" width="420" height="280">
+
 
  - Main skill
 	 - Python - Django
@@ -20,5 +26,7 @@ ProjectQnS
 		 - S3
 
 ***  
-프로젝트의 자세한 사항은 프로젝트 결과의 보고서를 참조해 주세요
+<img src="프로젝트%20결과/PPT_Image2.png"><br>
+<img src="프로젝트%20결과/PPT_Image1.png"><br>
+<img src="프로젝트%20결과/PPT_Image3.png"><br>
 ***
