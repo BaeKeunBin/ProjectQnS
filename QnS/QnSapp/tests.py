@@ -1,5 +1,5 @@
 from django.test import TestCase
-from QnSapp.models import Professor, SurveyPost
+from QnSapp.models import Professor, SurveyPost, SurveyQuestion
 # Create your tests here.
 # class SmokeTest(TestCase):
 # 	def test_bad_maths(self):
@@ -58,6 +58,114 @@ class TestGetSurveyList(TestCase):
 	#세션에 저장된 데이터로 검색하여 해당 목록만 얻어온다
 	def test_get_searched_list(self):
 		response = self.client.post('/surveyList/',{'needData':'default'})
-		print("#####test message######",len(response.json()))
-		print(response.json())
+		# print("#####test message######",len(response.json()))
+		# print(response.json())
 		self.assertEqual(2,len(response.json()['title']))
+
+#설문별 질문목록 가져오기
+class TestGetQuestionList(TestCase):
+
+	def setUp(self):
+		#DB 생성
+		#설문지 생성
+		self.post1 = SurveyPost.objects.create(
+			postNum = 0,
+			title="알고리즘 과목 설문조사",
+			name="김교수",
+			subject="알고리즘",
+			useTemplate="False")
+		self.post2 = SurveyPost.objects.create(
+			postNum = 1,
+			title="자료구조 과목 설문조사",
+			name="김교수",
+			subject="자료구조",
+			useTemplate="False")
+		self.post3 = SurveyPost.objects.create(
+			postNum = 2,
+			title="네트워크 과목 설문조사",
+			name="이교수",
+			subject="네트워크",
+			useTemplate="True")
+		self.master_post = SurveyPost.objects.create(
+			postNum = 3,
+			title="master",
+			name="master",
+			subject="master",
+			useTemplate="True")
+		#템플릿 사용시 질문 개수
+		self.using_template_question_number = 3
+		# 설문별 질문 내용
+		self.template_question1 = SurveyQuestion.objects.create(
+			post = self.master_post,
+			QuestionNum =0,
+			Question="템플릿 전용 질문 1"
+			)
+		self.template_question2 = SurveyQuestion.objects.create(
+			post = self.master_post,
+			QuestionNum =1,
+			Question="템플릿 전용 질문 2"
+			)
+		self.template_question3 = SurveyQuestion.objects.create(
+			post = self.master_post,
+			QuestionNum =2,
+			Question="템플릿 전용 질문 3"
+			)
+
+		#템플릿 사용시 질문 개수
+		self.not_using_template_question_number = 5
+		# 설문별 질문 내용
+		self.question1 = SurveyQuestion.objects.create(
+			post = self.post2,
+			QuestionNum =0,
+			Question="설문 1번 전용질문 1"
+			)
+		self.question2 = SurveyQuestion.objects.create(
+			post = self.post2,
+			QuestionNum =1,
+			Question="설문 1번 전용질문 2"
+			)
+		self.question3 = SurveyQuestion.objects.create(
+			post = self.post2,
+			QuestionNum =2,
+			Question="설문 1번 전용질문 3"
+			)
+		self.question4 = SurveyQuestion.objects.create(
+			post = self.post2,
+			QuestionNum =2,
+			Question="설문 1번 전용질문 4"
+			)
+		self.question5 = SurveyQuestion.objects.create(
+			post = self.post2,
+			QuestionNum =2,
+			Question="설문 1번 전용질문 5"
+			)
+	# 템플릿을 사용한 질문 가져오기
+	def test_get_questionlist_using_template(self):
+		#세션 생성 템플릿을 사용하는 설문
+		self.session = self.client.session
+		self.session['surveyPostNum'] = 2
+		self.session.save()
+
+		# print("\n #####start test message######\n")
+		# #세션의 모든 내용을 출력
+		# for key, value in self.client.session.items():
+		#     print('{} => {}'.format(key, value))
+		# # print("session : ",self.client.session.exists())
+		# print('post number : ',self.post3.postNum)
+		# print("\n #####end test message######\n")
+
+		response = self.client.post('/questionList/')
+		# print("\n #####start test message######\n")
+		# print('post number : ',response.json()['Qcontent'])
+		# print("\n #####end test message######\n")
+		self.assertEqual(self.using_template_question_number,len(response.json()['Qcontent']))
+
+
+	def test_get_questionlist_not_use_template(self):
+		#세션 생성 템플릿을 사용하지 않는 설문
+		self.session = self.client.session
+		self.session['surveyPostNum'] = 1
+		self.session.save()
+
+		response = self.client.post('/questionList/')
+		self.assertEqual(self.not_using_template_question_number,len(response.json()['Qcontent']))
