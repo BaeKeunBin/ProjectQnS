@@ -1,5 +1,5 @@
 from django.test import TestCase
-from QnSapp.models import Professor, SurveyPost, SurveyQuestion
+from QnSapp.models import Answer, Professor, SurveyPost, SurveyQuestion
 # Create your tests here.
 # class SmokeTest(TestCase):
 # 	def test_bad_maths(self):
@@ -160,7 +160,7 @@ class TestGetQuestionList(TestCase):
 		# print("\n #####end test message######\n")
 		self.assertEqual(self.using_template_question_number,len(response.json()['Qcontent']))
 
-
+	# 템플릿을 사용하지 않는 질문 가져오기
 	def test_get_questionlist_not_use_template(self):
 		#세션 생성 템플릿을 사용하지 않는 설문
 		self.session = self.client.session
@@ -169,3 +169,62 @@ class TestGetQuestionList(TestCase):
 
 		response = self.client.post('/questionList/')
 		self.assertEqual(self.not_using_template_question_number,len(response.json()['Qcontent']))
+
+#해당하는 설문의 질문과 답변 가져오기
+class TestViewQuestion(TestCase):
+
+	def setUp(self):
+		#설문 생성
+		self.post1 = SurveyPost.objects.create(
+			postNum = 1,
+			title="알고리즘 과목 설문조사",
+			name="김교수",
+			subject="알고리즘",
+			useTemplate="False")
+		#설문 1번의 질문
+		self.question1 = SurveyQuestion.objects.create(
+			post = self.post1,
+			QuestionNum =0,
+			Question="설문 1번 전용질문 1"
+			)
+		self.question2 = SurveyQuestion.objects.create(
+			post = self.post1,
+			QuestionNum =1,
+			Question="설문 1번 전용질문 2"
+			)
+		self.question3 = SurveyQuestion.objects.create(
+			post = self.post1,
+			QuestionNum =2,
+			Question="설문 1번 전용질문 3"
+			)
+		#해당하는 질문의 답변
+		self.ans1 = Answer.objects.create(
+			post = self.post1,
+			name = "김철수",
+			QuestionNum = 0,
+			answer = "질문1의 답변"
+			)
+		self.ans1 = Answer.objects.create(
+			post = self.post1,
+			name = "김철수",
+			QuestionNum = 1,
+			answer = "질문2의 답변"
+			)
+		self.ans1 = Answer.objects.create(
+			post = self.post1,
+			name = "김철수",
+			QuestionNum = 2,
+			answer = "질문3의 답변"
+			)
+
+
+	def test_get_answer_set(self):
+
+		response = self.client.post('/viewQuestion/',{'postNumber':'1'})
+
+		print("\n #####start test message######\n")
+		print('post number : ',response.json()['name'])
+		print('post number : ',response.json()['question'])
+		print('post number : ',response.json()['ans'])
+
+		print("\n #####end test message######\n")
